@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticaMVVM.Views.LoginPage"
+             BindingContext="{Binding Main,Source={StaticResource Locator}}"
+             Title="Login">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding Login}">
+        <StackLayout Padding="10,20,10,5">
+            <Label
+                 Text="Lands"
+                 HorizontalOptions="Center"
+                 FontSize="Large"
+                 FontAttributes="Bold">
+            </Label>
+
+            <Grid Margin="0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label
+                    VerticalOptions="Center"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="E-mail">
+                </Label>
+                <Entry 
+                    Text="{Binding email,Mode=TwoWay}"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Placeholder="enter your email.. ">
+                </Entry>
+                <Label 
+                    VerticalOptions="Center"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Passwordl">
+                </Label>
+                <Entry 
+                    Text="{Binding password,Mode=TwoWay}"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Placeholder="Enter your password...">
+                </Entry>
+            </Grid >
+            
+            <StackLayout Orientation="Horizontal">
+                <Label 
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="Center"
+                    Text="remeber my password"></Label>
+                <Switch HorizontalOptions="End"></Switch>
+            </StackLayout>
+
+            <ActivityIndicator>
+            </ActivityIndicator>
+            
+            <StackLayout Margin="30,0">
+                <Button 
+                    Command="{Binding Login}"
+                    Text="Login"
+                    BackgroundColor="Navy"
+                    BorderRadius="23"
+                    HeightRequest="46"
+                    TextColor="White">
+                </Button>
+                <Button  
+                    Text="Registrar"
+                    BackgroundColor="Purple"
+                    BorderRadius="23"
+                    HeightRequest="46"
+                    TextColor="White">
+                </Button>
+            </StackLayout>
+            
+        </StackLayout>
+    </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
