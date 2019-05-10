@@ -5,8 +5,8 @@
              BindingContext="{Binding Main,Source={StaticResource Locator}}"
              Title="Login">
     <ContentPage.Content>
-        <ScrollView BindingContext="{Binding Login}">
-        <StackLayout Padding="10,20,10,5">
+        <ScrollView BindingContext="{Binding Login}"> <!--Con este binding conecto con loginviewmodel-->
+            <StackLayout Padding="10,20,10,5">
             <Label
                  Text="Lands"
                  HorizontalOptions="Center"
@@ -56,7 +56,7 @@
             <ActivityIndicator>
             </ActivityIndicator>
             
-            <StackLayout Margin="30,0">
+            <StackLayout>
                 <Button 
                     Command="{Binding Login}"
                     Text="Login"
