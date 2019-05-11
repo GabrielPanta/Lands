@@ -5,7 +5,7 @@
              BindingContext="{Binding Main,Source={StaticResource Locator}}"
              Title="Login">
     <ContentPage.Content>
-        <ScrollView BindingContext="{Binding Login}"> <!--Con este binding conecto con loginviewmodel-->
+        <ScrollView BindingContext="{Binding Login}"> <!--Con este binding conecto todo el xml con loginviewmodel-->
             <StackLayout Padding="10,20,10,5">
             <Label
                  Text="Lands"
@@ -35,12 +35,13 @@
                     VerticalOptions="Center"
                     Grid.Row="1"
                     Grid.Column="0"
-                    Text="Passwordl">
+                    Text="Password">
                 </Label>
                 <Entry 
                     Text="{Binding password,Mode=TwoWay}"
                     Grid.Row="1"
                     Grid.Column="1"
+                    IsPassword="True"
                     Placeholder="Enter your password...">
                 </Entry>
             </Grid >
@@ -55,26 +56,27 @@
 
             <ActivityIndicator>
             </ActivityIndicator>
-            
-            <StackLayout>
-                <Button 
+
+                <StackLayout>
+                    <Button 
                     Command="{Binding Login}"
                     Text="Login"
+                    IsEnabled="{Binding IsEnabled,Mode=TwoWay}"    
                     BackgroundColor="Navy"
                     BorderRadius="23"
                     HeightRequest="46"
                     TextColor="White">
-                </Button>
-                <Button  
+                    </Button>
+                    <Button  
                     Text="Registrar"
+                    IsEnabled="{Binding IsEnabled,Mode=TwoWay}"
                     BackgroundColor="Purple"
                     BorderRadius="23"
                     HeightRequest="46"
                     TextColor="White">
-                </Button>
+                    </Button>
+                </StackLayout>
             </StackLayout>
-            
-        </StackLayout>
     </ScrollView>
     </ContentPage.Content>
 </ContentPage>

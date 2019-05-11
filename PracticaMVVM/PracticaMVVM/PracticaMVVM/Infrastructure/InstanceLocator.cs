@@ -7,15 +7,19 @@ namespace PracticaMVVM.Infrastructure
 {
    public class InstanceLocator
     {
+        #region Properties
         public MainViewModel Main
         {
             get;
             set;
         }
+        #endregion
+        #region Constructer
         public InstanceLocator()
         {
             Main = new MainViewModel();
-        }
+        } 
+        #endregion
     }
 
 }

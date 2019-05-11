@@ -9,16 +9,20 @@ namespace PracticaMVVM.ViewModel
 {
     public class MainViewModel
     {
+        #region Properties
         public LoginViewModel Login
         {
             get;
             set;
         }
+        #endregion
 
+        #region Constructer
         public MainViewModel()
         {
             this.Login = new LoginViewModel();
-        }
+        } 
+        #endregion
     }
 
 
