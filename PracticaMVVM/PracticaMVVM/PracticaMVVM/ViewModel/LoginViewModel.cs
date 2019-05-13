@@ -1,22 +1,31 @@
 ﻿using GalaSoft.MvvmLight.Command;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+using PracticaMVVM.Views;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace PracticaMVVM.ViewModel
 {
    public class LoginViewModel: BaseViewModel
     {
-        
+
         #region Atributes
+        private string Email;
         private string Password;
         private bool isEnabled;
         #endregion
 
         #region Properties
-        public string email { get; set; }
+        public string email
+        {
+            get
+            {
+                return this.Email;
+            }
+            set
+            {
+                SetValue(ref this.Email, value);
+            }
+        }
         public string password
         {
             get
@@ -34,7 +43,7 @@ namespace PracticaMVVM.ViewModel
             get
             {
                 return this.isEnabled;
-            }
+            }   
 
             set
             {
@@ -66,8 +75,12 @@ namespace PracticaMVVM.ViewModel
                 return;
             }
             this.IsEnabled = true;
-            await App.Current.MainPage.DisplayAlert("ok", "FUCK YEAHHH", "Aceptar");
-            return;
+
+            this.email = string.Empty;
+            this.password = string.Empty;
+
+            MainViewModel.GetInstance().Lands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
 
         }
 
@@ -75,6 +88,8 @@ namespace PracticaMVVM.ViewModel
         public LoginViewModel()
         {
             this.isEnabled = true;
+            this.email = "gabo";
+            this.password = "123";
         } 
         #endregion
     }
